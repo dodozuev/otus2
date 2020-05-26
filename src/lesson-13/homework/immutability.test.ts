@@ -1,4 +1,10 @@
-import { OriginalTeam, ExpectedTeam } from "./immutability";
+import {
+  ExpectedTeam,
+  OriginalTeam,
+  originalArrayToExpectedArray,
+  originalTeamToExpectedTeam,
+  originalTeamToExpectedTeam2,
+} from "./immutability";
 
 // Задание 1
 test("team to team", () => {
@@ -14,7 +20,7 @@ test("team to team", () => {
     roster: 25,
   };
 
-  expect(originalTeamToExpectedTeam(originalTeam)).toBe(expectedTeam);
+  expect(originalTeamToExpectedTeam(originalTeam)).toMatchObject(expectedTeam);
 });
 
 // Задание 2
@@ -23,7 +29,9 @@ test("array to array", () => {
 
   const expectedArray = ["two", 3, 4, 5];
 
-  expect(originalArrayToExpectedArray(originalArray)).toBe(expectedArray);
+  expect(originalArrayToExpectedArray(originalArray)).toStrictEqual(
+    expectedArray
+  );
 });
 
 // Задание 3
@@ -44,5 +52,5 @@ test("team to team deep", () => {
     },
   };
 
-  expect(originalTeamToExpectedTeam(originalTeam)).toBe(expectedTeam);
+  expect(originalTeamToExpectedTeam2(originalTeam)).toStrictEqual(expectedTeam);
 });
