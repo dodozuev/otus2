@@ -13,11 +13,13 @@ export type ExpectedTeam = {
 
 export const originalTeamToExpectedTeam = (
   originalTeam: OriginalTeam
-): ExpectedTeam => ({
-  league: originalTeam.league,
-  name: "New York Badgers",
-  roster: 25,
-});
+): ExpectedTeam => {
+  return {
+    ...originalTeam,
+    name: "New York Badgers",
+    roster: 25,
+  };
+};
 
 // Задание 2
 type SomeArray = Array<number | string>;

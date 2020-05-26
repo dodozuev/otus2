@@ -20,7 +20,7 @@ test("team to team", () => {
     roster: 25,
   };
 
-  expect(originalTeamToExpectedTeam(originalTeam)).toStrictEqual(expectedTeam);
+  expect(originalTeamToExpectedTeam(originalTeam)).toMatchObject(expectedTeam);
 });
 
 // Задание 2

@@ -11,8 +11,14 @@ export const getTopName = (teams: Team[]): string => {
 // Задание 2
 export type QsObj = Record<string, string | number | boolean | object>;
 
-export const createQs = (qsObj: QsObj): string =>
-  `?page=${qsObj.page}&pageSize=${qsObj.pageSize}&total=${qsObj.total}&somethingElse=${qsObj.somethingElse}`;
+export const createQs = (qsObj: QsObj): string => {
+  return (
+    "?" +
+    Object.keys(qsObj)
+      .map((k: string) => `${k}=${qsObj[k]}`)
+      .join("&")
+  );
+};
 
 // Задание 3
 
